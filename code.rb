@@ -450,6 +450,16 @@ end
 
 twitter_data.each do |account|
   account.each do |user, info|
-    puts "#{user}'s latest weet was #{info["last twenty tweets"][0].length} characters long."
+    puts "#{user}'s latest tweet was #{info["last twenty tweets"][0].length} characters long."
+  end
+end
+
+tweets = 0
+twitter_data.each do |account|
+  account.each do |user, info|
+    info["last twenty tweets"].each do |tweet|
+      tweets += tweet.length
+    end
+    puts "#{user} used #{tweets} characters in their last twenty tweets"
   end
 end
