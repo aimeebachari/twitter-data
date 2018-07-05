@@ -441,3 +441,9 @@ twitter_data.each do |account|
     end
   end
 end
+
+twitter_data.each do |account|
+  account.each do |user, info|
+    puts "#{user}: #{info["number of followers"]}"
+  end
+end
