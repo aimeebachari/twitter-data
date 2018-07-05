@@ -447,3 +447,9 @@ twitter_data.each do |account|
     puts "#{user}: #{info["number of followers"]}"
   end
 end
+
+twitter_data.each do |account|
+  account.each do |user, info|
+    puts "#{user}'s latest weet was #{info["last twenty tweets"][0].length} characters long."
+  end
+end
