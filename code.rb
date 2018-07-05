@@ -433,11 +433,11 @@ def twitter_data
 end
 
 twitter_data.each do |account|
-  account.each do |k,v|
-    if v["description"] == nil
-      puts "#{k}: NA"
+  account.each do |user, info|
+    if info["description"] == nil
+      puts "#{user}: NA"
     else
-      puts "#{k}: #{v["description"]}"
+      puts "#{user}: #{info["description"]}"
     end
   end
 end
