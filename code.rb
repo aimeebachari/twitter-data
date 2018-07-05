@@ -432,101 +432,12 @@ def twitter_data
     "location"=>"Boston, MA"}}]
 end
 
-# Display name and description, if description is nil, put NA
-twitter_data.each do |user|
-  user.each do |name, info|
-    info.each do |category, data|
-      if category == "description" && data == nil
-        puts "#{name}: NA"
-      elsif category == "description"
-        puts "#{name}: #{info["description"]}"
-      end
-    end
-  end
-end
-puts "====="
-# Display the user and the number of followers
-twitter_data.each do |user|
-  user.each do |name, info|
-    puts "#{name}: #{info["number of followers"]}"
-  end
-end
-puts "====="
-# Display the character length of each user's latest tweet
-twitter_data.each do |user|
-  user.each do |name, info|
-    latest_tweet_length = info["latest tweet"].length
-    puts "#{name}'s latest tweet was #{latest_tweet_length} characters long."
-  end
-end
-puts "====="
-# Display the total characters used in the user's last twenty tweets
-twitter_data.each do |user|
-  user.each do |name, info|
-    last_twenty_length = info["last twenty tweets"].join("").length
-    puts "#{name} used #{last_twenty_length} characters in their last twenty tweets."
-  end
-end
-puts "====="
-# Who has the most followers
-most_followers = 0
-user_with_most_followers = ""
-twitter_data.each do |user|
-  user.each do |name, info|
-    if most_followers < info["number of followers"]
-      most_followers = info["number of followers"]
-      user_with_most_followers = name
-    end
-  end
-end
-puts "#{user_with_most_followers} has the most followers."
-puts "====="
-# Who has the most friends
-most_friends = 0
-user_with_most_friends = ""
-twitter_data.each do |user|
-  user.each do |name, info|
-    if most_friends < info["number of friends"]
-      most_friends = info["number of friends"]
-      user_with_most_friends = name
-    end
-  end
-end
-puts "#{user_with_most_friends} has the most friends."
-puts "====="
-# Who has the most tweets
-most_tweets = 0
-user_with_most_tweets = ""
-twitter_data.each do |user|
-  user.each do |name, info|
-    if most_tweets < info["number of tweets"]
-      most_tweets = info["number of tweets"]
-      user_with_most_tweets = name
-    end
-  end
-end
-puts "#{user_with_most_tweets} has the most tweets."
-puts "====="
-# Display a list of the users that have provided a description
-puts "The following user's have provided a description:"
-twitter_data.each do |user|
-  user.each do |name, info|
-    info.each do |category, data|
-      if category == "description" && data != nil
-        puts name
-      end
-    end
-  end
-end
-puts "====="
-# Display a list of the users that have specified a location
-puts "The following users have specified a location:"
-twitter_data.each do |user|
-  user.each do |name, info|
-    info.each do |category, data|
-      if category == "location" && data != nil
-        puts name
-      end
+twitter_data.each do |account|
+  account.each do |k,v|
+    if v["description"] == nil
+      puts "#{k}: NA"
+    else
+      puts "#{k}: #{v["description"]}"
     end
   end
 end

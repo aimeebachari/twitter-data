@@ -25,84 +25,151 @@ $ cd twitter-data
 
 Write code to produce the terminal output shown in each example block. (Put
 another way, when you run `ruby code.rb`, your program should display all of
-this data sequentially in your terminal as shown in the example output blocks.)
+this data sequentially in your terminal as shown in the example output blocks.) You must use **logic** to output the answers.
 
 1. Each username followed by its description. If there is no description (i.e.,
-  `nil` then print out "NA" instead):
+    `nil` then print out "NA" instead):
 
-  Example Output:
+    Example Output:
 
-  ```no-highlight
-  LaunchAcademy: A 10 week, intensive bootcamp teaching you how to code with a
-  focus on Ruby on Rails
-  dpickett: Co-Founder at @LaunchAcademy, Co-Organizer of @bostonrb
-  .
-  .
-  .
-  ```
+    ```no-highlight
+    LaunchAcademy: A 10 week, intensive bootcamp teaching you how to code with a
+    focus on Ruby on Rails
+    dpickett: Co-Founder at @LaunchAcademy, Co-Organizer of @bostonrb
+    STWatkins78: NA
+    .
+    .
+    .
+    ```
 
 2. Each username followed by total number of followers.
 
-  Example Output:
+    Example Output:
 
-  ```no-highlight
-  LaunchAcademy: 3590
-  dpickett: 1604
-  .
-  .
-  .
-  ```
+    ```no-highlight
+    LaunchAcademy: 3590
+    dpickett: 1604
+    .
+    .
+    .
+    ```
 
 3. Each username and the length of their latest tweet.
 
-  Example Output:
+    Example Output:
 
-  ```no-highlight
-  LaunchAcademy's latest tweet was 140 characters long.
-  dpickett's latest tweet was 81 characters long.
-  .
-  .
-  .
-  ```
+    ```no-highlight
+    LaunchAcademy's latest tweet was 140 characters long.
+    dpickett's latest tweet was 81 characters long.
+    .
+    .
+    .
+    ```
 
 4. Each username followed by the total character count used in that user's last
-  twenty tweets.
+    twenty tweets.
 
-  Example Output:
+    Example Output:
 
-  ```no-highlight
-  LaunchAcademy used 2430 characters in their last twenty tweets.
-  dpickett used 2147 characters in their last twenty tweets.
-  .
-  .
-  .
-  ```
+    ```no-highlight
+    LaunchAcademy used 2430 characters in their last twenty tweets.
+    dpickett used 2147 characters in their last twenty tweets.
+    .
+    .
+    .
+    ```
 
 5. Write Ruby code to answer each of the following questions about our Twitter
-  data.
+    data.
 
-  As in the previous examples, display the answer to these questions in the
-  terminal.
+    As in the previous examples, display the answer to these questions in the
+    terminal.
 
-  * Which user has the most followers?
-  * Which user has the most friends?
-  * Which user has the greatest number of tweets?
-  * Which users have a `description` listed in `twitter_data`?
-  * Which users have a `location` listed in `twitter_data`?
+    * Which user has the most followers?
+
+    Example Output:
+
+    ```no-highlight
+    LaunchAcademy has the most followers.
+    ```
+
+    * Which user has the most friends?
+
+    Example Output:
+
+    ```no-highlight
+    dpickett has the most friends.
+    ```
+    * Which user has the greatest number of tweets?
+
+    Example Output:
+
+    ```no-highlight
+    julissaJM has the greatest number of tweets.
+    ```
+    * Which users **do not** have a `description` listed in `twitter_data`?
+
+    Example Output:
+
+    ```no-highlight
+    STWatkins78 does not have a description.
+    Dot_the_speck does not have a description.
+    wand_chris does not have a description.
+    ```
+    * Which users have a `location` listed in `twitter_data` and which ones do not? Organize these two groups into two separate lists based on whether they have a `location`.
+
+    Example Output:
+
+    ```no-highlight
+    Has a location:
+    LaunchAcademy
+    dpickett
+    chrisccerami
+    spencercdixon
+    corinnebabbles
+    bostonrb
+    judngu
+    lizvdk
+    hchood
+    julissaJM
+    ashleytbasinger
+    alacritythief
+
+    Does not have a location:
+    STWatkins78
+    Dot_the_speck
+    wand_chris
+    ```
 
 ### Sample Usage
 
-* What are the twitter usernames in `twitter_data`?
+* Make sure you're using **logic** to get to the solutions, not hard coding the solution.
+
+* For example if we ask you `What are the twitter usernames in twitter_data?`, we want to see something like this:
 
 ```ruby
+puts "Usernames for each user:"
 twitter_data.each do |hash|
   puts hash.keys.first
 end
 ```
 
-### Sample Output
+**Not** this:
+```ruby
+puts "Usernames for each user:"
+puts "LaunchAcademy"
+puts "dpickett"
+puts "STWatkins78"
+puts "chrisccerami"
+.
+.
+.
+```
+
+in order to get this output:
 
 ```no-highlight
+Usernames for each user:
 LaunchAcademy
 dpickett
 STWatkins78
@@ -122,6 +189,8 @@ alacritythief
 
 ### Tips
 
+* Use `.each`. Use it a lot.
+
 * Break down the compound data structure into its smallest parts. Isolate a data
   structure and ask yourself what composes it. Is it an array of hashes? An
   array of strings? An array of arrays?
@@ -131,8 +200,6 @@ alacritythief
   [Hashes](http://www.ruby-doc.org/core-2.2.0/Hash.html) and
   [Strings](http://www.ruby-doc.org/core-2.2.0/String.html)
   to explore what methods Ruby has to offer.
-
-* Use `.each`. Use it a lot.
 
 
 ### Hint
