@@ -1,3 +1,4 @@
+require 'pry'
 def twitter_data
   [{"LaunchAcademy"=>
    {"description"=>
@@ -460,6 +461,18 @@ twitter_data.each do |account|
     info["last twenty tweets"].each do |tweet|
       tweets += tweet.length
     end
-    puts "#{user} used #{tweets} characters in their last twenty tweets"
+    puts "#{user} used #{tweets} characters in their last twenty tweets."
   end
 end
+
+max_followers = 0
+account_name = ""
+twitter_data.each do |account|
+  account.each do |user, info|
+    if info["number of followers"] > max_followers
+      max_followers = info["number of followers"]
+      account_name = user
+    end
+  end
+end
+puts "#{account_name} has the most followers."
