@@ -508,3 +508,23 @@ twitter_data.each do |account|
     end
   end
 end
+
+locations = []
+no_locations = []
+twitter_data.each do |account|
+  account.each do |user, info|
+    if info["location"] != nil
+      locations << user
+    else
+      no_locations << user
+    end
+  end
+end
+puts "Has a location:\n"
+locations.each do |entry|
+  puts "#{entry}\n"
+end
+puts "\nDoes not have a location:\n"
+no_locations.each do |entry|
+  puts "#{entry}\n"
+end
