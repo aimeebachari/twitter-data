@@ -500,3 +500,11 @@ twitter_data.each do |account|
   end
 end
 puts "#{account_name} has the greatest number of tweets."
+
+twitter_data.each do |account|
+  account.each do |user, info|
+    if info["description"] == nil
+      puts "#{user} does not have a description."
+    end
+  end
+end
