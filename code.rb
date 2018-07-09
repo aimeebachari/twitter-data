@@ -476,3 +476,15 @@ twitter_data.each do |account|
   end
 end
 puts "#{account_name} has the most followers."
+
+max_friends = 0
+account_name = ""
+twitter_data.each do |account|
+  account.each do |user, info|
+    if info["number of friends"] > max_friends
+      max_friends = info["number of friends"]
+      account_name = user
+    end
+  end
+end
+puts "#{account_name} has the most friends."
